@@ -1,19 +1,21 @@
 {
   "compilerOptions": {
     "sourceMap": true,
+    "target": "ES2017",
     "outDir": "dist",
     "strict": true,
     "lib": ["ES2017"],
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "rootDirs": ["src"],
+    "rootDirs": ["src", "tests"],
     "baseUrl": ".",
     "paths": {
+      "@/tests/*": ["tests/*"],
       "@/*": ["src/*"],
-      "@/core": ["src/core/*"],
-      "@/domain": ["src/domain/*"],
-      "@/application": ["src/application/*"]
+      "@/core/*": ["src/core/*"],
+      "@/domain/*": ["src/domain/*"],
+      "@/application/*": ["src/application/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

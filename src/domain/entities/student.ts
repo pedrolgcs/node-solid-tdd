@@ -4,7 +4,7 @@ import { Entity } from '@/core/domain';
 type StudentProps = {
   name: string;
   email: string;
-  createdAt: Date;
+  createdAt?: Date;
 };
 
 class Student extends Entity<StudentProps> {
@@ -13,7 +13,13 @@ class Student extends Entity<StudentProps> {
   }
 
   public static create(props: StudentProps, id?: string): Student {
-    return new Student(props, id);
+    return new Student(
+      {
+        ...props,
+        createdAt: props.createdAt ?? new Date(),
+      },
+      id
+    );
   }
 }
 
