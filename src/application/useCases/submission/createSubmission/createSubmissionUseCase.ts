@@ -1,5 +1,4 @@
 // entities
-// import { Submission } from '../../../../domain/entities/submission';
 import { Submission } from '@/domain/entities/submission';
 
 type createSubmissionDTO = {

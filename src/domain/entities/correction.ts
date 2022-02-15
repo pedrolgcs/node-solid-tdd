@@ -1,5 +1,5 @@
 // core
-import { Entity } from '../../core/domain';
+import { Entity } from '@/core/domain';
 
 type CorrectionProps = {
   grade: string;
