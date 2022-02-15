@@ -21,6 +21,14 @@ class Student extends Entity<StudentProps> {
       id
     );
   }
+
+  get name() {
+    return this.props.name;
+  }
+
+  get email() {
+    return this.props.email;
+  }
 }
 
 export { Student };

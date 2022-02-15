@@ -1,5 +1,5 @@
 // entities
-import { Student } from '@/domain/entities/student';
+import { Student } from '@/domain/entities/Student';
 
 // repository
 import { StudentsRepository } from '@/application/repositories/StudentsRepository';

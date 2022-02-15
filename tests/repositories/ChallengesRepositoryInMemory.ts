@@ -1,5 +1,5 @@
 // entities
-import { Challenge } from '@/domain/entities/challenge';
+import { Challenge } from '@/domain/entities/Challenge';
 
 // repository
 import { ChallengesRepository } from '@/application/repositories/ChallengesRepository';

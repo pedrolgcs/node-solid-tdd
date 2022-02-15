@@ -1,6 +1,12 @@
 // entities
-import { Submission } from '@/domain/entities/submission';
-import { Challenge } from '@/domain/entities/challenge';
+import { Challenge } from '@/domain/entities/Challenge';
+import { Student } from '@/domain/entities/Student';
+
+// factories
+import {
+  StudentFactory,
+  ChallengeFactory,
+} from '@/application/helpers/factories';
 
 // useCase
 import { CreateSubmissionUseCase } from './createSubmissionUseCase';
@@ -10,31 +16,25 @@ import {
   StudentsRepositoryInMemory,
   ChallengesRepositoryInMemory,
 } from '@/tests/repositories';
-import { Student } from '@/domain/entities/student';
 
 describe('createSubmission', () => {
   let studentsRepositoryInMemory: StudentsRepositoryInMemory;
   let challengesRepositoryInMemory: ChallengesRepositoryInMemory;
+  let student: Student;
+  let challenge: Challenge;
 
-  beforeEach(() => {
+  beforeAll(() => {
     studentsRepositoryInMemory = new StudentsRepositoryInMemory();
     challengesRepositoryInMemory = new ChallengesRepositoryInMemory();
-  });
 
-  it('should by able to create a new challenge submission', async () => {
-    const student = Student.create({
-      name: 'student1',
-      email: 'studen-email@gmail.com',
-    });
-
-    const challenge = Challenge.create({
-      title: 'challenge 1',
-      instructionsUrl: 'url',
-    });
+    student = StudentFactory.defaultStudent();
+    challenge = ChallengeFactory.defaultChallenge();
 
     studentsRepositoryInMemory.students.push(student);
     challengesRepositoryInMemory.challenges.push(challenge);
+  });
 
+  it('should by able to create a new challenge submission', async () => {
     const sut = new CreateSubmissionUseCase(
       studentsRepositoryInMemory,
       challengesRepositoryInMemory

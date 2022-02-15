@@ -18,6 +18,14 @@ class Challenge extends Entity<ChallengerProps> {
       createdAt: props.createdAt ?? new Date(),
     }, id);
   }
+
+  get title() {
+    return this.props.title;
+  }
+
+  get instructionsUrl() {
+    return this.props.instructionsUrl;
+  }
 }
 
 export { Challenge };
